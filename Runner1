@@ -1,0 +1,28 @@
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Runner1 {
+
+    public static void main(String[] args) {
+
+        ApplicationContext actx = new ClassPathXmlApplicationContext("bean.xml");
+
+        IPrintf ptr = (IPrintf) actx.getBean("print");
+        ptr.printf();
+
+        Class clas1 = (Class) actx.getBean("proxy");
+        //int resClass = clas1.getA();
+
+
+
+        Class object2 = (Class) actx.getBean("proxy2");
+        //int resClass2 = object2.getA();
+        try {
+            clas1.getA();
+        }
+        catch(Exception ex) {
+        }
+
+       // System.out.println("resClass = " + resClass);
+    }
+}
