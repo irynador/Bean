@@ -1,0 +1,20 @@
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Runner {
+
+    public static void main(String[] args) {
+
+        ApplicationContext actx = new ClassPathXmlApplicationContext("spring-config.xml");
+
+// ApplicationContext actx = new FileSystemXmlApplicationContext("bean.xml");
+
+// ApplicationContext actx = new XmlWebApplicationContext();
+
+        IPrintf ptr = (IPrintf) actx.getBean("print");
+
+        ptr.printf();
+
+    }
+
+}
