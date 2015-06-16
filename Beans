@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <bean id="print" class="Printer"/>
+       <bean id="class" class="Class">
+              <property name="a" value="555"/>
+       </bean>
+
+       <bean id="RecommendID" class="Recommend"/>
+
+       <bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+              <property name="target" ref="class"/>
+              <property name="interceptorNames">
+                     <list>
+                            <value>RecommendID</value>
+                     </list>
+              </property>
+       </bean>
+
+
+       <bean id="class2" class="Class">
+              <property name="a" value="555"/>
+       </bean>
+       <bean id="proxy2" class="org.springframework.aop.framework.ProxyFactoryBean">
+              <property name="target" ref="class2"/>
+              <property name="interceptorNames">
+                     <list>
+                            <value>RecommendID</value>
+                     </list>
+              </property>
+       </bean>
+
+
+</beans>
