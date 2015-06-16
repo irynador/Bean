@@ -1,0 +1,30 @@
+import java.util.List;
+
+public class Class {
+
+    private int a;
+
+    private List<String> list;
+
+    public Class() {}
+
+    public void setA(int a) {
+        this.a = a;
+    }
+
+    public void getA() throws Exception {
+        System.out.println("GetA is running");
+        throw new Exception();
+        //return a;
+    }
+
+    public void printList() {
+        for (String s : list)
+            System.out.println(s);
+    }
+
+    public void setList(List<String> list) {
+        this.list = list;
+    }
+}
+
